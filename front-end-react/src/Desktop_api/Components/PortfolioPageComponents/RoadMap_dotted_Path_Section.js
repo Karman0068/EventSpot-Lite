@@ -82,7 +82,7 @@ function DottedPathBlock() {
                     onMouseEnter={(e) => { e.target.style.textShadow = '8px 8px 8px rgba(0, 0, 0, 0.5)' }}
                     onMouseLeave={(e) => { e.target.style.textShadow = '2px 2px 6px rgba(0, 0, 0, 0.8)' }}>
                     {RoadTraveler.symbol}
-                    <Edit_DeleteComponent/>
+                    
                 </div>
 
                 <div className=" px-4 py-1 rounded-2xl z-10 box-border border-4 border-y-cyan-300 border-x-slate-400" > </div>

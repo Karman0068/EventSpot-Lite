@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Edit_DeleteComponent from '../GeneralComponents/Edit_DeleteComponent';
 import FooterForm from "./FooterForm";
+import AddNewComponent from '../GeneralComponents/AddNewComponent';
 
 function PorfolioFooter({className}){
     const [isEditable, setisEditable] = useState(true);
@@ -48,6 +49,10 @@ function PorfolioFooter({className}){
                         <Edit_DeleteComponent>
                             <div className='flex justify-center '><input className=' p-1 max-w-full text-center text-2xl rounded-xl outline-blue-400' /></div>
                             <div className='flex justify-center '><input className=' p-1 max-w-full text-center text-2xl rounded-xl outline-blue-400' /></div>
+                            <AddNewComponent>
+                                <div className='flex justify-center '><input className=' p-1 max-w-full text-center text-2xl rounded-xl outline-blue-400' /></div>
+                                <div className='flex justify-center '><input className=' p-1 max-w-full text-center text-2xl rounded-xl outline-blue-400' /></div>
+                            </AddNewComponent>
                         </Edit_DeleteComponent>
                     )}
 

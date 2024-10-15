@@ -6,7 +6,7 @@ function Edit_DeleteComponent({children}) {
 
     return (
         <>
-            <div className='absolute  top-0 left-0 rounded-xl w-full h-full flex justify-center items-center gap-3 backdrop-blur-[2px] z-10'>
+            <div className='absolute top-0  left-0 rounded-xl  w-full h-full flex justify-center items-center gap-3 backdrop-blur-[2px] z-10'>
                 <button
                     className="text-3xl p-[0.42rem] px-[0.62rem] font-semibold text-neutral-700 bg-gray-500 border-2 border-gray-700 bg-opacity-65 active:bg-gray-400 rounded-full aspect-square"
                     onClick={() => setIsVisible(true)}>

@@ -1,7 +1,7 @@
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
-import { Link,NavLink, useLocation } from 'react-router-dom';
+import { Link,NavLink, useNavigate, useLocation } from 'react-router-dom';
 import SearchBar from './SearchBar';
 
 import default_DP from '../../../Pictures/default images/DP.jpg'
@@ -21,6 +21,7 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
+  const navigate = useNavigate();
   return (
     <Disclosure as="nav" className="bg-slate-800 sticky top-0 z-50">
       <div className="mx-0  px-2 sm:px-6 lg:px-8">
@@ -58,7 +59,7 @@ export default function Navbar() {
 
 
 
-            {location.pathname === '/Projects' && (
+            {location.pathname === '/MyProjects' && (
               <SearchBar />
             )}
 
@@ -77,16 +78,17 @@ export default function Navbar() {
                 className="relative rounded-full bg-gray-800  text-gray-400 hover:text-white active:outline-none active:ring-2 active:ring-white active:ring-offset-2 active:ring-offset-gray-800 text-2xl rotate-[29deg]"
               >
                 <span className="absolute -inset-1.5" />
-                <span className="sr-only">View notifications</span>
+                <span className="sr-only">Dark Mode</span>
                 &#9789;
               </button>
 
               <button
                 type="button"
                 className="relative rounded-full bg-gray-800  text-gray-400 hover:text-white active:outline-none active:ring-2 active:ring-white active:ring-offset-2 active:ring-offset-gray-800 text-2xl"
+                onClick={() =>navigate(`/settings`)}
               >
                 <span className="absolute -inset-1.5" />
-                <span className="sr-only">View notifications</span>
+                <span className="sr-only">Settings</span>
                 &#9965;
               </button>
             </div>
@@ -114,9 +116,9 @@ export default function Navbar() {
                   </NavLink>
                 </MenuItem>
                 <MenuItem>
-                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100">
+                  <NavLink to='/settings' className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100">
                     Settings
-                  </a>
+                  </NavLink>
                 </MenuItem>
                 <MenuItem>
                   <a href="#" className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100">
@@ -129,7 +131,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      <DisclosurePanel className="sm:hidden">
+      <DisclosurePanel className="lg:hidden">
         <div className="space-y-1 px-2 pb-3 pt-2">
           {navigation.map((item) => (
             <DisclosureButton

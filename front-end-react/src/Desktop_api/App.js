@@ -26,6 +26,7 @@ import {
   useNavigate,
   Outlet,
 } from "react-router-dom";
+import SettingsPageBody from './PagesBody/SettingsPageBody';
 
 
 
@@ -53,6 +54,7 @@ function App() {
           <Route exact path="/MyProjects" element={<MyProjectsBody className='flex-grow h-full' />} />
           <Route exact path="/portfolio" element={<PortfolioPageBody className='flex-grow h-full ' />} />
           <Route exact path="/profile" element={<ProfilePageBody className='flex-grow h-full ' />} />
+          <Route exact path="/settings" element={<SettingsPageBody className='flex-grow h-full ' />} />
         </Routes>
         </div>
 
