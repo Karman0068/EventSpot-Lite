@@ -1,22 +1,14 @@
 import Navbar from './Components/GeneralComponents/Navbar';
 import Footer from './Components/GeneralComponents/Footer';
 
-
-
 import LoginPageBody from './PagesBody/LoginPageBody';
 
 import LoginButtons from "./Components/LoginPageComponents/LoginButtons";
 import LoginForm from "./Components/LoginPageComponents/LoginForm";
-import { SignupForm1, SignupForm2, SignupForm3 } from "./Components/LoginPageComponents/SignupForm";
+import { SignupProvider } from "./Components/LoginPageComponents/SignupForm";
+import { SignupForm1, SignupForm2, SignupForm3 } from './Components/LoginPageComponents/SignupFormComponents';
 
-
-
-import MyProjectsBody from './PagesBody/MyProjectsBody';
-
-import ProfilePageBody from './PagesBody/ProfilePageBody';
-
-import PortfolioPageBody from './PagesBody/PortfolioPageBody';
-
+import HomeBody from './PagesBody/Home';
 
 import {
   BrowserRouter as Router,
@@ -26,7 +18,6 @@ import {
   useNavigate,
   Outlet,
 } from "react-router-dom";
-import SettingsPageBody from './PagesBody/SettingsPageBody';
 
 
 
@@ -41,21 +32,22 @@ function App() {
         <Navbar />
 
         <div className='min-h-full w-full relative'
-          style={{ minHeight : `calc(100vh - 7rem)` }}>
-        <Routes>
-          <Route exact path="/" element={<LoginPageBody className='flex-grow h-full' />}>
-            <Route exact path="/" element={<LoginButtons />} />
-            <Route exact path="/login" element={<LoginForm />} />
-            <Route exact path="/signup1" element={<SignupForm1 />} />
-            <Route exact path="/signup2" element={<SignupForm2 />} />
-            <Route exact path="/signup3" element={<SignupForm3 />} />
-          </Route>
+          style={{ minHeight: `calc(100vh - 7rem)` }}>
+          <Routes>
+            <Route exact path="/" element={<LoginPageBody className='flex-grow h-full' />}>
+              <Route exact index element={<LoginButtons />} />
+              <Route exact path="/login" element={<LoginForm />} />
+              <Route exact path="/signup" element={<SignupProvider />} >
+                <Route exact path="step-1" element={<SignupForm1 />} />
+                <Route exact path="step-2" element={<SignupForm2 />} />
+                <Route exact path="step-3" element={<SignupForm3 />} />
+              </Route>
+            </Route>
 
-          <Route exact path="/MyProjects" element={<MyProjectsBody className='flex-grow h-full' />} />
-          <Route exact path="/portfolio" element={<PortfolioPageBody className='flex-grow h-full ' />} />
-          <Route exact path="/profile" element={<ProfilePageBody className='flex-grow h-full ' />} />
-          <Route exact path="/settings" element={<SettingsPageBody className='flex-grow h-full ' />} />
-        </Routes>
+            <Route exact path="/home" element={<HomeBody className='flex-grow h-full' />} />
+            
+            
+          </Routes>
         </div>
 
         <Footer />

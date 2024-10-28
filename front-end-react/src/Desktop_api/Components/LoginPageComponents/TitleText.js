@@ -5,16 +5,16 @@ function TitleText() {
             <div style={{ width: `calc(100%)` }}>
                 <h1
 
-                    className="py-4 text-pink-500 border-y-[1.3px] border-neutral-400 text-6xl xl:text-7xl 2xl:text-8xl overflow-hidden text-nowrap scrollbar-hidden relative"
+                    className="py-4 text-stone-600 border-y-[1.3px] border-neutral-400 text-5xl xl:text-6xl 2xl:text-7xl overflow-hidden text-nowrap scrollbar-hidden relative"
                 >
                     <span
                         style={{
                             display: 'inline-block',
-                            fontFamily: '"Rubik Glitch Pop", system-ui',
+                            fontFamily: '"Rubik Lines", system-ui',
                             fontWeight: 400,
                             fontStyle: 'normal',
                         }}>
-                        Coder Kongs:
+                        EventSpot Lite:
                     </span>
                 </h1>
 
@@ -29,7 +29,7 @@ function TitleText() {
                             fontWeight: 400,
                             fontStyle: `normal`
                         }}>
-                        a portfolio building application
+                        discover what is happening arround you
                     </span>
 
                 </h2>

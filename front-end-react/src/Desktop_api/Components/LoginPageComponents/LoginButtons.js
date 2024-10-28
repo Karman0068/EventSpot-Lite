@@ -1,16 +1,6 @@
 import {SolidButton,HollowButton}  from "../GeneralComponents/Button";
 
 
-import {
-    BrowserRouter as Router,
-    Routes,
-    Route,
-    Link,
-    useNavigate,
-    Outlet,
-  } from "react-router-dom";
-
-
 function LoginButtons(){
     return(
         <>
@@ -27,7 +17,7 @@ function LoginButtons(){
                 color="light"
                 thickness="4"
                 size='w-full max-w-80  sm:max-w-full'
-                target='signup1'/>
+                target='signup/step-1'/>
         </>
     );
 };

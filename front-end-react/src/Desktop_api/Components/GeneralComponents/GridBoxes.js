@@ -1,90 +1,91 @@
 import DefaultPic from '../../../Pictures/default images/General_Default.png';
+import SearchBar from './SearchBar';
 import {
-    BrowserRouter as Router,
-    Routes,
-    Route,
-    Link,
-    useNavigate,
-    Outlet,
+    useNavigate
 } from "react-router-dom";
-import { useState } from 'react';
-import AddNewComponent from "./AddNewComponent";
-import Edit_DeleteComponent from '../../Components/GeneralComponents/Edit_DeleteComponent';
+import React, { useState, useEffect } from 'react';
+import FlexBox from './FlexBox';
 
 function GridBoxes({ className }) {
-    const [isEditable, setisEditable] = useState(false);
-    const [isLikesVisible, setIsLikesVisible] = useState(true);
-    const [isCommentsVisible, setIsCommentsVisible] = useState(true);
     const navigate = useNavigate();
+    const [events, setEvents] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    const [searchTerm, setSearchTerm] = useState('');
 
-    const list = [
-        { id: 1, name: 'Project1', likes: '0', comments: '2' },
-        { id: 2, name: 'Project2', likes: '0', comments: '2' },
-        { id: 3, name: 'Project3', likes: '0', comments: '2' },
-        { id: 4, name: 'Project4', likes: '0', comments: '2' },
-        { id: 5, name: 'Project5', likes: '0', comments: '2' },
-        { id: 6, name: 'Project6', likes: '0', comments: '2' },
-        { id: 7, name: 'Project7', likes: '0', comments: '2' },
-        { id: 8, name: 'Project8', likes: '0', comments: '2' },
-        { id: 9, name: 'Project9', likes: '0', comments: '2' },
-    ];
+    const list = [{id:1} , {id:2} , {id:3} , {id:4} , {id:5} , {id:6} , {id:7} , {id:8} , {id:9} , {id:10} , {id:11} , {id:12} , {id:13} , {id:14} , {id:15} , {id:16} , {id:17} , {id:18} , {id:19} , {id:20} ]
+
+    useEffect(() => {
+        const key = 'LhT3eVzksPMEjqRUJ1MxeTCZdUJvGv4k';
+        const fetchEvents = async () => {
+            try {
+                const response = await fetch(
+                    `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${key}&keyword=concert&size=50`
+                );
+
+                if (!response.ok) {
+                    throw new Error('Failed to fetch events');
+                }
+
+                const data = await response.json();
+                console.log(data);
+                setEvents(data._embedded?.events || []);
+            } catch (err) {
+                setError(err.message);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchEvents();
+    }, []);
+
+    const filteredEvents = events.filter((event) =>
+        event.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
+    if (loading) return (
+        <div className={`${className} p-4 w-full relative`}>
+                <div className=" animate-pulse grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 grid-flow-row">
+                    {list.map(( ) => (
+                        <div key={list.id} className="text-lg  font-semibold col-span-1 w-full flex flex-col gap-2 text-center justify-center items-center aspect-square">
+
+                            <div className="relative p-1 w-[80%] rounded-xl bg-slate-200 aspect-square"> </div>
+                            <div className="w-40 h-6 bg-slate-200 rounded-2xl "> </div>
+
+                        </div>
+                    ))}
+                </div>
+            </div>
+    );
+    if (error) return <div>Error: {error}</div>;
 
     return (
-        <div className={`${className} p-4 w-full relative`}>
-            <div className={`grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 grid-flow-row`}>
-                {list.map((item) => (
-                    <div key={item.id} className="text-lg text-black font-semibold col-span-1 w-full flex flex-col text-center justify-center items-center aspect-square">
+        <>
+            <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+            <div className={`${className} p-4 w-full relative`}>
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 grid-flow-row">
+                    {filteredEvents.map((event) => (
+                        <div key={event.id} className="text-lg text-black font-semibold col-span-1 w-full flex flex-col text-center justify-center items-center aspect-square">
+                            <div className="relative p-1 w-[80%] rounded-xl bg-slate-300 aspect-square">
+                                <img className="h-full w-full aspect-square rounded-xl" src={event.images[0].url} alt="Cover Picture" />
 
-                        <div className=' relative p-1 w-[80%] rounded-xl bg-slate-300 aspect-square'>
-                            <Link to='/portfolio' className="w-full ">
-
-                                <img className="h-full w-full" src={DefaultPic} alt="Cover Picture" />
-                            </Link>
-                            {(isEditable &&
-                                <Edit_DeleteComponent>
-                                    <div className="p-1 w-60 bg-slate-300  relative aspect-square">
-                                        <img className="h-full w-full opacity-65" src={DefaultPic} alt="Cover Picture" />
-                                        <button className='absolute text-base font-normal p-1 rounded-xl text-white bg-neutral-700 opacity-70 top-[50%] left-[4.5rem]'>Change Image</button>
-                                    </div>
-                                    <div className='flex justify-center '><input className=' p-1 max-w-full text-center text-2xl rounded-xl outline-blue-400' /></div>
-                                </Edit_DeleteComponent>
-                            )}
-                            <div className=' opacity-60 p-1 text-3xl absolute flex gap-1 bottom-0 right-0 '>
-
-                                {isLikesVisible && (
-                                    <button className=' rounded-xl text-white text-4xl leading-8 px-[0.4rem] bg-neutral-600  '> &#9825; <span className='text-2xl'>{item.likes}</span> </button>
-                                )}
-
-                                {isCommentsVisible && (
-                                    <button className=' rounded-xl text-white px-1 bg-neutral-600 '> &#128490; <span className='text-2xl'>{item.comments}</span> </button>
-                                )}
-
+                                <FlexBox>
+                                    <img className="h-full w-72 aspect-square" src={event.images[0].url ?? DefaultPic} alt="Cover Picture" />
+                                    <h2 className='text-stone-100 font-bold text-3xl overflow-hidden text-wrap'>{event.name}</h2>
+                                    <p className='text-stone-700 font-semibold text-xl'>&#128197;: {event.dates.start.localDate} {event.dates.start.localTime}
+                                        <div className='-mt-2 text-base font-normal text-neutral-800'>{event.dates.timezone}</div></p>
+                                    <p className='text-stone-700 font-semibold text-xl'>&#128205;: {event._embedded.venues[0].name}</p>
+                                </FlexBox>
+                            </div>
+                            <div className="max-w-full min-w-20">
+                                {event.name}
                             </div>
                         </div>
-
-                        <div className="max-w-full min-w-20" onClick={() => navigate(`/portfolio/${item.id}`)}>
-                            {item.name}
-                        </div>
-                    </div>
-                ))}
-
-                {(isEditable && <div className="col-span-1 w-full flex flex-col text-center justify-center items-center aspect-square">
-                    <div
-                        className="w-[80%] bg-slate-300 bg-opacity-40 rounded-3xl flex text-center justify-center items-center aspect-square">
-                        <AddNewComponent>
-                            <div className="p-1 w-60 bg-slate-300  relative aspect-square">
-                                <img className="h-full w-full opacity-65" src={DefaultPic} alt="Cover Picture" />
-                                <button className='absolute text-base font-normal p-1 rounded-xl text-white bg-neutral-700 opacity-70 top-[50%] left-[4.5rem]'>Change Image</button>
-                            </div>
-                            <div className='flex justify-center '><input className=' p-1 max-w-full text-center text-2xl rounded-xl outline-blue-400' /></div>
-                        </AddNewComponent>
-                    </div>
-                    <div className="text-white text-lg">white text</div> {/*to align it with other boxes */}
-                </div>)}
+                    ))}
+                </div>
             </div>
-
-
-        </div>
+        </>
     );
 }
 

@@ -40,7 +40,7 @@ function FactTextBox() {
       <Typewriter
         options={{
           cursor: '&#10074' ,
-          strings: ['Hello Mr. Momo. How are you doing?','World is beautiful place to live. Isn\'t it true?'],
+          strings: ['Do you want to be updated?' , 'Do you know what is happening around you?' , 'Do you want know about current events happening around you?' , 'Do you want to know what will happent next arround you?' , 'Do you want to get pre-notified about future events around you?'],
           autoStart: true,
           loop: true,
         }}

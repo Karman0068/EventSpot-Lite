@@ -18,7 +18,7 @@ function KongImageBox() {
 
   return (
     <div className={` box-border  flex justify-center w-full h-[100%] `} style={{ height: `calc(100% - 14rem)` }}>
-      <div className={`p-4 max-h-full max-w-full ${randomBgColor}`}>
+      <div className={` max-h-full max-w-full ${randomBgColor}`}>
         <img className={` max-h-full max-w-full  aspect-square `} src={randomImage} alt="Kong" />
       </div>
 
