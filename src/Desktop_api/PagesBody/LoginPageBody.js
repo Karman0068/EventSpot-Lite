@@ -13,7 +13,7 @@ function LoginPageBody({ className }) {
 
       {/* Image Box (Orange Border) */}
       <div
-        className="box-border p-1 gap-1 flex-grow items-center text-center w-auto h-[80vh] mt-1 min-h-[30rem] hidden lg:flex border-2 rounded-md border-orange-400 flex-col justify-between"
+        className="box-border p-1 gap-1 flex-grow items-center text-center w-auto h-[80vh] min-h-[30rem] hidden lg:flex border-2 rounded-md border-orange-400 flex-col justify-between"
         style={{ width: `calc(100vh - 48.5rem)`, height: `calc(100vh - 7.5rem)` }}
       >
 

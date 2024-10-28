@@ -25,14 +25,13 @@ function App() {
   return (
     <Router>
 
-      <div className=' box-border 
-      min-h-screen  min-w-[29rem] 
-      flex flex-col'>
+      <div className=' box-border
+      min-h-screen
+      flex flex-col justify-between'>
 
         <Navbar />
 
-        <div className='min-h-full w-full relative'
-          style={{ minHeight: `calc(100vh - 7rem)` }}>
+        <div className='h-full w-full flex relative'>
           <Routes>
             <Route exact path="/" element={<LoginPageBody className='flex-grow h-full' />}>
               <Route exact index element={<LoginButtons />} />
