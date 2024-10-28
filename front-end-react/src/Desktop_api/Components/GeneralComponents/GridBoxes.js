@@ -28,7 +28,7 @@ function GridBoxes({ className }) {
                 }
 
                 const data = await response.json();
-                console.log(data);
+                
                 setEvents(data._embedded?.events || []);
             } catch (err) {
                 setError(err.message);
