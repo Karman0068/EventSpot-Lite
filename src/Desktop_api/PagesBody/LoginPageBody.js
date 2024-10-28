@@ -25,7 +25,7 @@ function LoginPageBody({ className }) {
 
       {/* Login Box (Blue Border) */}
       <div
-        className=" my-10 box-border flex-grow lg:flex-grow-0 p-2 pb-10 min-h-fit h-[70vh] lg:min-h-fit w-screen lg:w-[33rem] xl:w-[43rem] border-blue-400 border-2 rounded-xl flex flex-col justify-center items-center"
+        className=" my-10 box-border flex-grow lg:flex-grow-0 p-2 pb-10 min-h-fit h-[70vh] lg:min-h-fit w-6 lg:w-[33rem] xl:w-[43rem] border-blue-400 border-2 rounded-xl flex flex-col justify-center items-center"
       >
         <FactTextBox />
         <AuthenticationPanel />

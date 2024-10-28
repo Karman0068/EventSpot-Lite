@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 function SearchBar({ searchTerm, setSearchTerm }) {
-    const [inputValue, setInputValue] = useState(searchTerm || ''); // Use searchTerm as initial value
+    const [inputValue, setInputValue] = useState(searchTerm || ''); 
     const [isFocused, setIsFocused] = useState(false);
 
     const handleInputChange = (event) => {
@@ -10,18 +10,18 @@ function SearchBar({ searchTerm, setSearchTerm }) {
 
     const handleSearch = (event) => {
         event.preventDefault();
-        setSearchTerm(inputValue); // Pass the input value back to the parent for searching
+        setSearchTerm(inputValue); 
     };
 
     const handleClear = () => {
         setInputValue('');
-        setSearchTerm(''); // Clear the search in the parent component as well
+        setSearchTerm(''); 
     };
 
     return (
         <form 
             className='mr-3 px-10 w-full h-fit flex justify-center rounded-lg'
-            onSubmit={handleSearch} // Handle form submission
+            onSubmit={handleSearch} 
         >
             <input 
                 className='px-2 w-4/5 text-lg box-content rounded-l-lg border-4 border-blue-400 focus:outline-none transition-all ease-in-out duration-300' 
@@ -34,7 +34,7 @@ function SearchBar({ searchTerm, setSearchTerm }) {
             <button 
                 type='submit'
                 className={`text-lg border-4 rounded-r-lg box-content border-slate-200 bg-slate-200 transition-all ease-in-out duration-200 ${inputValue ? 'hover:bg-neutral-300 hover:border-neutral-300 active:bg-slate-200' : 'cursor-not-allowed opacity-50'}`}
-                disabled={!inputValue} // Disable button if inputValue is empty
+                disabled={!inputValue} 
             >
                 &#128269; {/* Search icon */}
             </button>
