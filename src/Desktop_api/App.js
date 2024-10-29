@@ -26,7 +26,7 @@ function App() {
     <Router>
 
       <div className=' box-border
-      min-h-screen
+      min-h-lvh min-w-72
       flex flex-col justify-between'>
 
         <Navbar />
