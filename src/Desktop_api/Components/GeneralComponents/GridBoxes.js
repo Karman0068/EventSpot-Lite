@@ -46,12 +46,12 @@ function GridBoxes({ className }) {
 
     if (loading) return (
         <div className={`${className} p-4 w-full relative`}>
-                <div className=" animate-pulse grid grid-flow-row sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6 sm:gap-4">
+                <div className=" grid grid-flow-row sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6 gap-9 sm:gap-4">
                     {list.map((item) => (
-                        <div key={item.id} className="text-lg  font-semibold col-span-1 w-full flex flex-col gap-2 text-center justify-center items-center aspect-square">
+                        <div key={item.id} className="text-lg font-semibold  sm:col-span-1 w-full flex flex-col text-center justify-center items-center  sm:aspect-square">
 
-                            <div className="relative p-1 w-[80%] rounded-xl bg-slate-200 aspect-square"> </div>
-                            <div className="w-40 h-6 bg-slate-200 rounded-2xl "> </div>
+                            <div className="relative p-1 w-full sm:w-[80%] rounded-xl bg-slate-200 aspect-video sm:aspect-square"> </div>
+                            <div className="mt-4 w-[70%] h-8 bg-slate-200 rounded-2xl "> </div>
 
                         </div>
                     ))}
