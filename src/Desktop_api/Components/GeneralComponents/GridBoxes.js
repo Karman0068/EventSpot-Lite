@@ -46,12 +46,12 @@ function GridBoxes({ className }) {
 
     if (loading) return (
         <div className={`${className} p-4 w-full relative`}>
-                <div className=" animate-pulse grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 grid-flow-row">
+                <div className=" grid grid-flow-row sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6 gap-9 sm:gap-4">
                     {list.map((item) => (
-                        <div key={item.id} className="text-lg  font-semibold col-span-1 w-full flex flex-col gap-2 text-center justify-center items-center aspect-square">
+                        <div key={item.id} className="text-lg font-semibold  sm:col-span-1 w-full flex flex-col text-center justify-center items-center  sm:aspect-square">
 
-                            <div className="relative p-1 w-[80%] rounded-xl bg-slate-200 aspect-square"> </div>
-                            <div className="w-40 h-6 bg-slate-200 rounded-2xl "> </div>
+                            <div className="relative p-1 w-full sm:w-[80%] rounded-xl bg-slate-200 aspect-video sm:aspect-square"> </div>
+                            <div className="mt-4 w-[70%] h-8 bg-slate-200 rounded-2xl "> </div>
 
                         </div>
                     ))}
@@ -63,12 +63,12 @@ function GridBoxes({ className }) {
     return (
         <>
             <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-            <div className={`${className} p-4 w-full relative`}>
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 grid-flow-row">
+            <div className={`${className} pt-4 sm:p-4 w-full relative`}>
+                <div className="grid grid-flow-row sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6 gap-9 sm:gap-4">
                     {filteredEvents.map((event) => (
-                        <div key={event.id} className="text-lg text-black font-semibold col-span-1 w-full flex flex-col text-center justify-center items-center aspect-square">
-                            <div className="relative p-1 w-[80%] rounded-xl bg-slate-300 aspect-square">
-                                <img className="h-full w-full aspect-square rounded-xl" src={event.images[0].url} alt="Cover Picture" />
+                        <div key={event.id} className="text-lg text-black font-semibold  sm:col-span-1 w-full flex flex-col text-center justify-center items-center  sm:aspect-square">
+                            <div className="relative p-1 w-full sm:w-[80%] rounded-xl bg-slate-100 aspect-video sm:aspect-square">
+                                <img className="h-full w-full aspect-video sm:aspect-square  rounded-xl" src={event.images[0].url} alt="Cover Picture" />
 
                                 <FlexBox>
                                     <img className="h-full w-72 aspect-square" src={event.images[0].url ?? DefaultPic} alt="Cover Picture" />
