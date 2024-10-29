@@ -24,7 +24,7 @@ function SearchBar({ searchTerm, setSearchTerm }) {
             onSubmit={handleSearch} 
         >
             <input 
-                className='px-2 w-4/5 text-lg box-content rounded-l-lg border-4 border-blue-400 focus:outline-none transition-all ease-in-out duration-300' 
+                className='px-2 w-3/6 focus:w-4/6 text-lg font-semibold text-neutral-600 box-content rounded-l-lg border-4 border-blue-200 focus:border-blue-400 focus:outline-none transition-all ease-in-out duration-300' 
                 placeholder='Search'
                 value={inputValue}
                 onChange={handleInputChange}
