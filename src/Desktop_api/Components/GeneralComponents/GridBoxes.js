@@ -67,15 +67,15 @@ function GridBoxes({ className }) {
                 <div className="grid grid-flow-row sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6 gap-9 sm:gap-4">
                     {filteredEvents.map((event) => (
                         <div key={event.id} className="text-lg text-black font-semibold  sm:col-span-1 w-full flex flex-col text-center justify-center items-center  sm:aspect-square">
-                            <div className="relative p-1 w-full sm:w-[80%] rounded-xl bg-slate-100 aspect-video sm:aspect-square">
+                            <div className="relative pb-1 px-[0.05rem] w-full sm:w-[80%] rounded-xl bg-slate-200 aspect-video sm:aspect-square">
                                 <img className="h-full w-full aspect-video sm:aspect-square  rounded-xl" src={event.images[0].url} alt="Cover Picture" />
 
                                 <FlexBox>
-                                    <img className="h-full w-72 aspect-square" src={event.images[0].url ?? DefaultPic} alt="Cover Picture" />
+                                    <img className="h-full w-72 border-2 border-neutral-400 rounded-lg aspect-square" src={event.images[0].url ?? DefaultPic} alt="Cover Picture" />
                                     <div className='text-stone-100 font-bold text-3xl overflow-hidden text-wrap'>{event.name}</div>
-                                    <div className='text-stone-700 font-semibold text-xl'>&#128197;: {event.dates.start.localDate} {event.dates.start.localTime}
-                                        <div className='-mt-2 ml-7 text-base font-normal text-neutral-800'>{event.dates.timezone}</div></div>
-                                    <div className='text-stone-700 font-semibold text-xl'>&#128205;: {event._embedded.venues[0].name}</div>
+                                    <div className='text-zinc-400 font-semibold text-xl'>&#128197;: {event.dates.start.localDate} {event.dates.start.localTime}
+                                        <div className='-mt-2 ml-7 text-base font-normal text-zinc-400'>{event.dates.timezone}</div></div>
+                                    <div className='text-zinc-400 font-semibold text-xl'>&#128205;: {event._embedded.venues[0].name}</div>
                                 </FlexBox>
                             </div>
                             <div className="max-w-full min-w-20">

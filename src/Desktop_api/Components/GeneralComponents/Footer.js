@@ -21,7 +21,7 @@ function Footer(){
                 <ul className="
                   flex  flex-wrap
                   justify-around items-center 
-                  min-w-[60%] ">
+                  min-w-[95%] sm:min-w-[90%] md:min-w-[80%] lg:min-w-[60%] ">
 
                     {footerList.map((item) => 
                       <li key={item.id} className="
