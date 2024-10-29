@@ -15,7 +15,7 @@ function Footer(){
       justify-center items-center z-50'>
         <div className="
             box-border     
-            h-12 w-full
+            min-h-12 w-full
             flex justify-center items-center
             bg-slate-900">
                 <ul className="

@@ -32,7 +32,7 @@ function FactTextBox() {
     }}
     className=" box-border
                 p-1 mb-4
-                w-full h-48
+                w-full min-h-10 h-48
                 break-words hyphens-auto 
                 overflow-hidden overflow-y-auto scroll-smooth scrollbar-hidden
                 text-3xl sm:text-5xl font-bold text-pink-600 
